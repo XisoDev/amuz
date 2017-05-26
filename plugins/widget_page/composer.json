@@ -1,0 +1,45 @@
+{
+  "name": "xpressengine-plugin/widget_page",
+  "description": "This Package is Xpressengine Plugin - Widget page.",
+  "keywords": [
+    "xpressengine",
+    "plugin",
+    "widget"
+  ],
+  "license": "LGPL-2.1",
+  "version": "0.9.0",
+  "type": "xpressengine-plugin",
+  "support": {
+    "email": "developers@xpressengine.com"
+  },
+  "authors": [
+    {
+      "name": "XE Developers",
+      "email": "developers@xpressengine.com",
+      "homepage": "http://xpressengine.io",
+      "role": "Developer"
+    }
+  ],
+  "extra": {
+    "xpressengine": {
+      "title": "Widget page",
+      "component": {
+        "module/widgetpage@widgetpage": {
+          "class": "Xpressengine\\Plugins\\WidgetPage\\Modules\\WidgetPage",
+          "name": "Widget Page",
+          "description": "XE Widget Page Module",
+          "screenshot" : [
+            "/plugins/widget_page/assets/img/screenshot.png"
+          ]
+        }
+      }
+    }
+  },
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "Xpressengine\\Plugins\\WidgetPage\\": "src/"
+    }
+  }
+}

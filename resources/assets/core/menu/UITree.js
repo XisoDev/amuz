@@ -1,26 +1,28 @@
 import React from 'react';
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import TreeNode from './TreeNode';
 
-export default React.createClass({
+export default createReactClass({
   displayName: 'UITree',
 
   propTypes: {
-    tree: React.PropTypes.object,
-    home: React.PropTypes.string,
+    tree: PropTypes.object,
+    home: PropTypes.string,
 
-    paddingLeft: React.PropTypes.number,
+    paddingLeft: PropTypes.number,
 
-    getBaseUrl: React.PropTypes.func,
+    getBaseUrl: PropTypes.func,
 
-    clickHome: React.PropTypes.func,
+    clickHome: PropTypes.func,
 
-    getSelectedNode: React.PropTypes.func,
-    setSelectedNode: React.PropTypes.func,
+    getSelectedNode: PropTypes.func,
+    setSelectedNode: PropTypes.func,
 
-    getSearchedNode: React.PropTypes.func,
-    setSearchedNode: React.PropTypes.func,
+    getSearchedNode: PropTypes.func,
+    setSearchedNode: PropTypes.func,
 
-    moveNode: React.PropTypes.func,
+    moveNode: PropTypes.func,
   },
 
   getDefaultProps: function () {
@@ -245,7 +247,7 @@ export default React.createClass({
       var newParent = tree.get(newIndex.parent);
       dragging.targetParent = newParent.id;
       dragging.lastOrdering = newIndex.ordering;
-
+      dragging.children = newIndex.children;
     }
 
     this.setState({
@@ -306,13 +308,21 @@ export default React.createClass({
          );
       }
     } else {
-      this.props.moveNode(
-        {
-        id: dragging.id,
-        parent: dragging.targetParent,
-        position: dragging.lastOrdering,
+      if (dragging.children.length > 0) {
+        this.props.moveNode({
+          id: dragging.id,
+          parent: dragging.targetParent,
+          position: dragging.lastOrdering,
+          children: dragging.children,
+        });
+
+      } else {
+        this.props.moveNode({
+          id: dragging.id,
+          parent: dragging.targetParent,
+          position: dragging.lastOrdering,
+        });
       }
-      );
     }
 
     document.body.removeEventListener('mousemove', this.drag);

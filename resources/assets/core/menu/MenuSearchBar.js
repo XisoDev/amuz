@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import createReactClass from 'create-react-class';
+import PropTypes from 'prop-types';
 import MenuSearchSuggestion from './MenuSearchSuggestion';
 
-export default React.createClass({
+export default createReactClass({
   displayName: 'MenuSearchBar',
 
   propTypes: {
-    tree: React.PropTypes.object,
-    placeholder: React.PropTypes.string,
-    handleSearch: React.PropTypes.func,
-    menuRoutes: React.PropTypes.object,
+    tree: PropTypes.object,
+    placeholder: PropTypes.string,
+    handleSearch: PropTypes.func,
+    menuRoutes: PropTypes.object,
   },
   getDefaultProps: function () {
     return {
@@ -195,7 +196,7 @@ export default React.createClass({
              placeholder={placeholder} ref="input" onChange={this.handleChange}
              onKeyDown={this.handleKeyDown}/>
 							<button className="btn-link" onClick={this.resetSearch}>
-								<i className="xi-magnifier"></i><span className="sr-only">검색</span>
+								<i className="xi-search"></i><span className="sr-only">검색</span>
 							</button>
 
 							<MenuSearchSuggestion query={query}

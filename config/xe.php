@@ -358,6 +358,7 @@ return [
             'formCheckbox' => 'uiobject/xpressengine@formCheckbox',
             'formFile' => 'uiobject/xpressengine@formFile',
             'formImage' => 'uiobject/xpressengine@formImage',
+            'formColorpicker' => 'uiobject/xpressengine@formColorpicker',
             'formMenu' => 'uiobject/xpressengine@menuSelect',
             'formLangText' => 'uiobject/xpressengine@formLangText',
             'formLangTextarea' => 'uiobject/xpressengine@formLangTextArea',
@@ -374,9 +375,9 @@ return [
 
     'skin' => [
         'defaultSkins' => [
-            'member/auth' => 'member/auth/skin/xpressengine@default',
-            'member/profile' => 'member/profile/skin/xpressengine@default',
-            'member/settings' => 'member/settings/skin/xpressengine@default',
+            'user/auth' => 'user/auth/skin/xpressengine@default',
+            'user/profile' => 'user/profile/skin/xpressengine@default',
+            'user/settings' => 'user/settings/skin/xpressengine@default',
             'error' => 'error/skin/xpressengine@default',
         ],
         'defaultSettingsSkins' => [

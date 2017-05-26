@@ -166,14 +166,20 @@ class ComposerFileWriter
     /**
      * setUpdateMode
      *
+     * @param array $fixedList the list of version fixed plugins
+     *
      * @return void
      */
-    public function setUpdateMode()
+    public function setUpdateMode($fixedList = [])
     {
         $operation = '>=';
         $requires = [];
         foreach (array_get($this->data, 'require', []) as $package => $version) {
-            $requires[$package] = $operation.str_replace($operation, '', $version);
+            if (in_array($package, $fixedList)) {
+                $requires[$package] = str_replace($operation, '', $version);
+            } else {
+                $requires[$package] = $operation.str_replace($operation, '', $version);
+            }
         }
         array_set($this->data, 'require', $requires);
         array_set($this->data, 'xpressengine-plugin.mode', 'plugins-update');
@@ -225,7 +231,6 @@ class ComposerFileWriter
             array_set($this->data, "xpressengine-plugin.operation.expiration_time", null);
         }
 
-        $this->setUpdateMode();
         return $this;
     }
 
@@ -243,7 +248,6 @@ class ComposerFileWriter
         array_set($this->data, "xpressengine-plugin.operation.update.$name", $version);
         array_set($this->data, "xpressengine-plugin.operation.expiration_time", $expiredTime);
 
-        $this->setUpdateMode();
         return $this;
     }
 
@@ -264,7 +268,6 @@ class ComposerFileWriter
         array_set($this->data, "xpressengine-plugin.operation.uninstall", $uninstall);
         array_set($this->data, "xpressengine-plugin.operation.expiration_time", $expiredTime);
 
-        $this->setUpdateMode();
         return $this;
     }
 
@@ -285,7 +288,7 @@ class ComposerFileWriter
     }
 
     /**
-     * retreive data
+     * retrieve data
      *
      * @param string $key     data field key
      * @param mixed  $default default data

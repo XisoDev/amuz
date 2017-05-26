@@ -16,8 +16,11 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Xpressengine\Category\CategoryHandler;
-use Xpressengine\Category\CategoryItemRepository;
-use Xpressengine\Category\CategoryRepository;
+use Xpressengine\Category\EventListener;
+use Xpressengine\Category\Models\Category;
+use Xpressengine\Category\Models\CategoryItem;
+use Xpressengine\Category\Repositories\CategoryItemRepository;
+use Xpressengine\Category\Repositories\CategoryRepository;
 
 /**
  * 라라벨에서의 사용을 위한 서비스 제공자.
@@ -41,7 +44,13 @@ class CategoryServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        CategoryItemRepository::setCategoryModelProvider(function () {
+            return CategoryRepository::getModel();
+        });
+        CategoryRepository::setModel(Category::class);
+        CategoryItemRepository::setModel(CategoryItem::class);
+
+        $this->app['events']->subscribe(EventListener::class);
     }
 
     /**
@@ -54,7 +63,10 @@ class CategoryServiceProvider extends ServiceProvider
         $this->app->singleton(['xe.category' => CategoryHandler::class], function ($app) {
             $proxyClass = $app['xe.interception']->proxy(CategoryHandler::class, 'XeCategory');
 
-            return new $proxyClass;
+            return new $proxyClass(
+                new CategoryRepository,
+                new CategoryItemRepository($app['events'])
+            );
         }, true);
     }
 

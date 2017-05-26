@@ -84,7 +84,10 @@ class MenuItem extends CategoryItem
      *
      * @var array
      */
-    protected $fillable = ['parentId', 'title', 'url', 'description', 'target', 'type' , 'ordering', 'activated'];
+    protected $fillable = [
+        'menuId', 'parentId', 'title', 'url', 'description', 'target', 'type' , 'ordering', 'activated',
+        'basicImageId', 'hoverImageId', 'selectedImageId', 'mBasicImageId', 'mHoverImageId', 'mSelectedImageId',
+    ];
 
     /**
      * Indicates if the model selected.
@@ -101,6 +104,13 @@ class MenuItem extends CategoryItem
     protected $casts = [
         'activated' => 'integer',
     ];
+
+    /**
+     * todo: see CategoryItem class
+     *
+     * @var string
+     */
+    protected static $aggregator = Menu::class;
 
     /**
      * Alias aggregator
@@ -263,16 +273,6 @@ class MenuItem extends CategoryItem
         $method = $rfc->getParentClass()->getParentClass()->getMethod('getChildren');
 
         return $method->invoke($this);
-    }
-
-    /**
-     * Get the aggregator model name for model
-     *
-     * @return string
-     */
-    public function getAggregatorModel()
-    {
-        return Menu::class;
     }
 
     /**

@@ -49,13 +49,9 @@ class Composer
         'xpressengine-plugin/ckeditor' => '0.9.13',
         'xpressengine-plugin/claim' => '0.9.3',
         'xpressengine-plugin/comment' => '0.9.11',
-        'xpressengine-plugin/external_page' => '0.9.4',
-        'xpressengine-plugin/google_analytics' => '0.9.2',
         'xpressengine-plugin/news_client' => '0.9.3',
         'xpressengine-plugin/orientator' => '0.9.1',
         'xpressengine-plugin/page' => '0.9.4',
-        'xpressengine-plugin/social_login' => '0.9.12',
-        'xpressengine-plugin/emoticon' => '0.9.1',
         'xpressengine-plugin/widget_page' => '0.9.0'
     ];
 
@@ -120,7 +116,12 @@ class Composer
             // 플러그인 명령을 실행한 경우
             if (defined('__XE_PLUGIN_MODE__')) {
                 static::applyRequire($writer);
-                $writer->setUpdateMode();
+
+                $installs = $writer->get('xpressengine-plugin.operation.install', []);
+                $updates = $writer->get('xpressengine-plugin.operation.update', []);
+                $fixes = array_keys($installs) + array_keys($updates);
+
+                $writer->setUpdateMode($fixes);
                 $event->getOutput()->writeln("xpressengine-installer: running in update mode");
             // composer를 직접 실행한 경우
             } else {
