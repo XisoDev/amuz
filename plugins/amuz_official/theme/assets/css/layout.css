@@ -1,7 +1,10 @@
 @charset "UTF-8";
 /* LYG */
 /*reset*/
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+@import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url(//fonts.googleapis.com/css?family=Oswald);
+@import url(//fonts.googleapis.com/css?family=Quattrocento);
 *{
     -webkit-transition: ease 250ms;
     -moz-transition: ease 250ms;
@@ -27,15 +30,24 @@ a, a:link, a:hover, a:visited {
     text-decoration: none;
 }
 
-.image_layoutmode h3{
-
+#intro h1{
+    font-size: 85px;
+    font-weight: bold;
+    background-image: url(../images/slash_long.png);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: contain;
+    padding:20px;
+    margin:0;
 }
-.image_layoutmode p{
-
+#intro p {
+    margin-top: 30px;
+    font-size: 24px;
+    font-weight: 400;
 }
 
 .hasLeft{
-    padding-left:220px;
+    padding-left:245px;
 }
 .float-left {
     float: left;
@@ -82,7 +94,8 @@ a, a:link, a:hover, a:visited {
 }
 
 body, input, textarea, select, table {
-  font-family: "애플 SD 산돌고딕 Neo","Apple SD Gothic Neo",AppleGothic,Helvetica,sans-serif;
+  /*font-family: "애플 SD 산돌고딕 Neo","Apple SD Gothic Neo",AppleGothic,Helvetica,sans-serif;*/
+  font-family: "Nanum Gothic",sans-serif;
   font-size: 13px;
 }
 
@@ -93,7 +106,7 @@ body, input, textarea, select, table {
 }
 
 #sidemenu {
-    width: 220px;
+    width: 245px;
     height: 100%;
     position: fixed;
     top: 0;

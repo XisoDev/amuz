@@ -75,14 +75,14 @@ $theme::asset('js/smoothscroll.js'),
 
 @if($config->get('bgTxtColor'))
 <style>
-    #intro h3, #intro p {
+    #intro h1, #intro p {
         color: {{ $config->get('bgTxtColor') }}
     }
 </style>
 @endif
 
 @if($config->get('layout') != 'default')
-<section id="intro" @if($config->get('layout') != "particle") class="image_layoutmode" @endif style="background-color: @if($config->get('bgColor')) {{ $config->get('bgColor') }} @else #000 @endif; @if($config->get('bgImage.path')) background-image: url({{ $config->get('bgImage.path') }}); @endif">
+<section id="intro" @if($config->get('layout') != "particle") @endif style="background-color: @if($config->get('bgColor')) {{ $config->get('bgColor') }} @else #000 @endif; @if($config->get('bgImage.path')) background-image: url({{ $config->get('bgImage.path') }}); @endif">
 
     @if($config->get('layout') == "particle")
     <div id="particles-js" style="height:100%; width:100%; position:fixed; z-index:0;">
@@ -90,11 +90,15 @@ $theme::asset('js/smoothscroll.js'),
     @endif
 
     <div style="position:fixed; z-index:-1; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); text-align: center;">
-        @if($config->get('logoImage.path'))
-            <img src="{{ $config->get('logoImage.path') }}" alt="{{ xe_trans($config->get('logoText', '')) }}" width="200"/>
-        @endif
-        <h3>{{ $config->get('bgTitle') }}</h3>
-        <p>{!! nl2br($config->get('bgContent')) !!}</p>
+    @if($config->get('logoImage.path'))
+        <img src="{{ $config->get('logoImage.path') }}" alt="{{ xe_trans($config->get('logoText', '')) }}" width="200"/>
+    @endif
+    @if($config->get('bgTitle'))
+        <h1>{{ $config->get('bgTitle') }}</h1>
+    @endif
+    @if($config->get('bgContent'))
+        <p class="subtitle">{!! nl2br($config->get('bgContent')) !!}</p>
+    @endif
     </div>
 
 </section>

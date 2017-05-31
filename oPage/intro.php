@@ -1,7 +1,7 @@
 <?php XeFrontend::css('/oPage/assets/css/common.css')->load(); ?>
 
 <!-- SICTION2 -->
-<section class="section" id="section2">
+<section class="section" id="ourworks">
     <div class="left">
         <div class="l_top">
             <div class="bgwrap">
