@@ -1,0 +1,234 @@
+@charset "UTF-8";
+/* LYG */
+/*reset*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
+
+html, body {
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+div, ul, li, p{
+    margin: 0;
+    padding: 0;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a, a:link, a:hover, a:visited {
+    text-decoration: none;
+}
+
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+#section1 {
+    height: 100%;
+}
+
+.footer h3, .footer ul {
+  margin: 0;
+  padding: 0;
+}
+
+.footer-copy p, .footer .footer-text, .content.support .xe-col-md-4 .support-txt .table-txt dl, .snb ul, .plugin-area ul {
+  margin: 0;
+  padding: 0;
+}
+
+.footer .menu-list li a, .footer h3 a, .footer .footer-copy a {
+  text-decoration: none;
+}
+
+@font-face {
+  font-family: "ng";
+  font-style: normal;
+  src: url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Regular.eot");
+  src: url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Regular.eot?#iefix") format("embedded-opentype"), url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Regular.woff") format("woff"), url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "ng";
+  font-style: normal;
+  font-weight: 300;
+  src: url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Light.eot");
+  src: url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Light.eot?#iefix") format("embedded-opentype"), url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Light.woff") format("woff"), url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Light.ttf") format("truetype");
+}
+
+body, input, textarea, select, table {
+  font-family: "애플 SD 산돌고딕 Neo","Apple SD Gothic Neo",AppleGothic,Helvetica,sans-serif;
+  font-size: 13px;
+}
+
+#content {
+    padding-left: 220px;
+}
+
+#sidemenu {
+    width: 220px;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: table;
+}
+
+#sidemenu ul {
+    vertical-align: middle;
+    display: table-cell;
+    padding: 50px;
+}
+
+#sidemenu ul li {
+    line-height: 250%;
+}
+
+#sidemenu .menuLink {
+    color: #FFF;
+    display: block;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.footer {
+  background-color: #1B1C1F;
+  color: #fff;
+    padding-left:220px;
+}
+
+.footer > .xe-container, .footer > .xe-container-fluid {
+  padding-top: 40px;
+  padding-bottom: 60px;
+}
+
+.footer .footer-copy {
+  position: relative;
+  padding: 20px 0 60px;
+  border-top: 1px solid #333;
+}
+
+.footer .brand-area a {
+  color: #fff;
+}
+
+.footer h3 {
+  color: #fff;
+}
+
+.footer h3 a {
+  color: #fff;
+}
+
+.footer .link-area a {
+  color: #fff;
+}
+
+.footer .footer-text, .footer .menu-list li a, .footer .footer-copy p {
+  color: #35373d;
+}
+
+.footer .footer-text {
+  margin-bottom: 50px;
+}
+
+.footer .menu-list li.on a, .footer .menu-list li a:hover {
+  color: #b8a18d;
+}
+
+.footer .footer-copy a, .footer .link-area a:hover {
+  color: #b8a18d;
+}
+
+.footer h3 {
+  margin: 40px 0 20px;
+  font-weight: normal;
+}
+
+.footer h3:first-child {
+  margin-top: 0;
+}
+
+.footer .link-area {
+  margin-top: 30px;
+}
+
+.footer .brand-area {
+  margin-bottom: 20px;
+  font-size: 47px;
+}
+
+.footer .menu-list li {
+  margin-bottom: 10px;
+}
+
+.footer .link-area a {
+  margin-left: 16px;
+  font-size: 23px;
+}
+
+.footer .xe-form-group {
+  position: absolute;
+  top: 25px;
+  right: 10px;
+  display: block;
+  height: 30px;
+  margin-bottom: 0;
+}
+
+.footer .xe-form-group .xe-btn {
+  border: 1px solid #333;
+  background-color: #1b1c1f;
+  color: #b8a18d;
+  font-size: 13px;
+}
+
+.footer .xe-form-group .xe-btn:focus, .footer .xe-form-group .xe-btn.focus {
+  background-color: #1b1c1f;
+  border: 1px solid #333;
+}
+
+.footer .xe-form-group .xe-dropdown-menu {
+  top: auto;
+  bottom: 31px;
+  background-color: #1b1c1f;
+}
+
+.footer .xe-form-group li a {
+  font-size: 13px;
+}
+
+@media (min-width: 768px) {
+  .footer .footer-copy {
+    padding: 20px 0;
+  }
+  .footer h3 {
+    margin: 0 0 30px;
+  }
+  .footer .link-area {
+    margin-top: 0;
+  }
+  .footer .xe-form-group {
+    position: absolute;
+    top: -8px;
+    right: 112px;
+  }
+}
+
+@media (max-width: 1199px) {
+}
+
+@media (min-width: 1200px) {
+}
+
+@media (min-width: 768px) {
+}
+
+@media (min-width: 1068px) {
+}

@@ -1,0 +1,43 @@
+{
+    "name": "xpressengine-plugin/amuz_official",
+    "description": "This Package is Xpressengine Plugin - Amuz Official Theme.",
+    "keywords": [
+        "xpressengine",
+        "plugin"
+    ],
+    "license": "LGPL-2.1",
+    "version": "1.0.0",
+    "type": "xpressengine-plugin",
+    "support": {
+        "email": "amuz@amuz.co.kr"
+    },
+    "authors": [
+        {
+            "name": "overcode",
+            "email": "overcode@amuz.co.kr",
+            "homepage": "http://amuz.co.kr",
+            "role": "Developer"
+        }
+    ],
+    "extra": {
+        "xpressengine": {
+            "title": "Amuz Official Theme",
+            "component": {
+                "theme/amuz_official@theme": {
+                    "class": "amuz\\official\\Theme\\Theme",
+                    "name": "Amuz Official",
+                    "description": "The Theme supported by Amuz_official plugin."
+                }
+            }
+        }
+    },
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "amuz\\official\\": "src/"
+        },
+        "classmap": [
+            "theme/Theme.php"
+        ]
+    }
+}
