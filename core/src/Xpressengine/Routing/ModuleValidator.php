@@ -228,8 +228,27 @@ class ModuleValidator implements ValidatorInterface
      */
     private function getHomeInstanceRoute()
     {
+
         if (static::$homeInstanceRoute === null) {
-            $homeInstanceId = $this->siteHandler->getHomeInstanceId();
+            //서브도메인별 다른 인스턴스 초기화
+            $host = $_SERVER['HTTP_HOST'];
+            preg_match('/[^\.]+\.([^\.]{4}|[^\.]{3}|(co|or|pe|ac|ne)\.[^\.]{2}|[^\.]{2})$/i', $host, $matches);
+            $domain        = $matches[0];
+            $sub_domain    = ($host!=$domain)?str_replace(".{$domain}", "", $host):"";
+            switch($sub_domain){
+                case "bizm" :
+                    $homeInstanceId = "0b05439e";
+                break;
+
+                case "xpos" :
+                    $homeInstanceId = "42566fdd";
+                break;
+
+                default :
+                    $homeInstanceId = $this->siteHandler->getHomeInstanceId();
+                break;
+            }
+//            $homeInstanceId = $this->siteHandler->getHomeInstanceId();
             $instanceRoute = $this->routeRepo->findByInstanceId($homeInstanceId);
 
             static::$homeInstanceRoute = $instanceRoute;

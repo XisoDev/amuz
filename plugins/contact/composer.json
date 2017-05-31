@@ -1,0 +1,55 @@
+{
+  "name": "xpressengine-plugin/contact",
+  "description": "상담문의를 외부에서 받거나, 고객별로 상담내용을 기록할 수 있습니다.",
+  "keywords": [
+    "xpressengine",
+    "plugin",
+    "contactus",
+    "상담",
+    "고객관리",
+    "crm",
+    "customer"
+  ],
+  "license": "LGPL-2.1",
+  "version": "1.0.0",
+  "type": "xpressengine-plugin",
+  "support": {
+    "email": "amuz@amuz.co.kr"
+  },
+  "authors": [
+    {
+      "name": "xiso",
+      "email": "xiso@amuz.co.kr",
+      "homepage": "http://amuz.co.kr",
+      "role": "Developer"
+    }
+  ],
+  "extra": {
+    "xpressengine": {
+      "title": "상담관리",
+      "component": {
+//        "module/contact@contact": {
+//          "class": "Xpressengine\\Plugins\\Contact\\Modules\\Contact",
+//          "name": "Contact",
+//          "description": "외부에서 문의를 받을 수 있는 Contact 모듈입니다.",
+//          "screenshot" : []
+//        },
+//        "module/contact@crm": {
+//          "class": "Xpressengine\\Plugins\\Contact\\Modules\\Crm",
+//          "name": "CRM",
+//          "description": "Contact에서 받은 문의를 토대로 고객을 관리하고 상담기록을 관리합니다.",
+//          "screenshot" : []
+//        }
+      }
+    }
+  },
+  "require": {
+    "xpressengine-plugin/ckeditor": "*",
+    "xpressengine-plugin/comment": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Xpressengine\\Plugins\\contact\\": "src/"
+    }
+  }
+}

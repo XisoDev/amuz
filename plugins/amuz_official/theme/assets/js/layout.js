@@ -1,5 +1,32 @@
 $(document).ready(function () {
 
+  //smooth scroll
+  $("body").smoothWheel();
+
+    //smoothscroll
+    $(document).on("scroll", onScroll);
+    $('.scrolllink').find('a[href^="#"]').on('click', function (e) {
+        e.preventDefault();
+        $(document).off("scroll");
+
+        $('.scrolllink').find('a').each(function () {
+            $(this).removeClass('active');
+        });
+        $(this).addClass('active');
+
+        var target = this.hash,
+            menu = target;
+            $target = $(target);
+            var top = $target.offset().top;
+
+        $('html, body').stop().animate({
+            'scrollTop': top
+        }, 500, 'swing', function () {
+            window.location.hash = target;
+            $(document).on("scroll", onScroll);
+        });
+    });
+
   $(".btn-toggle").click(function () {
 
     var menuHeight; // 메뉴 height 값
@@ -118,4 +145,29 @@ $(document).ready(function () {
     }
   });
 
-})
+});
+
+
+function onScroll(event){
+    var scrollPos = jQuery(document).scrollTop();
+
+
+    // jQuery('#sidemenu a').each(function () {
+    //     var currLink = jQuery(this);
+    //     var refElement = jQuery(currLink.attr("href"));
+    //     if (refElement.position().top - 100 <= scrollPos && refElement.position().top + refElement.height()-100 > scrollPos) {
+    //         jQuery('.gnb li a').removeClass("active");
+    //
+    //         // if (refElement.selector == "#whoweare" || refElement.selector == "#whatwedo" || refElement.selector == "#howwedo"){
+    //         //     jQuery('.gnb li a').css('color','#000');
+    //         // }else{
+    //         //     jQuery('.gnb li a').css('color','#fff');
+    //         // }
+    //         currLink.addClass("active");
+    //     }
+    //     else{
+    //         currLink.removeClass("active");
+    //     }
+    // });
+}
+

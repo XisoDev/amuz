@@ -13,8 +13,13 @@
 {{-- script --}}
 {{ app('xe.frontend')->js([
 $theme::asset('js/layout.js'),
-$theme::asset('js/particles.min.js'),
+$theme::asset('js/smoothscroll.js'),
 ])->load() }}
+
+
+@if($config->get('layout') == "particle")
+{{ app('xe.frontend')->js($theme::asset('js/particles.min.js'))->load() }}
+@endif
 
 {{-- inline style --}}
 {{ app('xe.frontend')->html('theme.style')->content("
@@ -58,7 +63,7 @@ $theme::asset('js/particles.min.js'),
     </div>
 </header>--}}
 
-<header id="sidemenu" style="@if($config->get('headerBgColor')) background-color: {{ $config->get('headerBgColor') }} @endif">
+<header id="sidemenu" class="scrolllink" style="@if($config->get('headerBgColor')) background-color: {{ $config->get('headerBgColor') }} @endif">
     <ul>
         @foreach(menu_list($config->get('mainMenu')) as $menu)
         <li>
@@ -70,35 +75,37 @@ $theme::asset('js/particles.min.js'),
 
 @if($config->get('bgTxtColor'))
 <style>
-    #section1 h3, #section1 p {
+    #intro h3, #intro p {
         color: {{ $config->get('bgTxtColor') }}
     }
 </style>
 @endif
 
 @if($config->get('layout') != 'default')
-<section id="section1" style="background-attachment: fixed; background-color: @if($config->get('bgColor')) {{ $config->get('bgColor') }} @else #000 @endif; @if($config->get('bgImage.path')) background-image: url({{ $config->get('bgImage.path') }}); @endif">
+<section id="intro" @if($config->get('layout') != "particle") class="image_layoutmode" @endif style="background-color: @if($config->get('bgColor')) {{ $config->get('bgColor') }} @else #000 @endif; @if($config->get('bgImage.path')) background-image: url({{ $config->get('bgImage.path') }}); @endif">
 
+    @if($config->get('layout') == "particle")
     <div id="particles-js" style="height:100%; width:100%; position:fixed; z-index:0;">
-        <div style="position:absolute; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); text-align: center;">
-            @if($config->get('logoImage.path'))
-                <img src="{{ $config->get('logoImage.path') }}" alt="{{ xe_trans($config->get('logoText', '')) }}" width="200"/>
-            @else
-                {!! xe_trans($config->get('logoText', 'Alice')) !!}
-            @endif
-            <h3>{{ $config->get('bgTitle') }}</h3>
-            <p>{!! nl2br($config->get('bgContent')) !!}</p>
-        </div>
+    </div>
+    @endif
+
+    <div style="position:fixed; z-index:-1; top: 50%; left: 50%; transform: translate3d(-50%, -50%, 0); text-align: center;">
+        @if($config->get('logoImage.path'))
+            <img src="{{ $config->get('logoImage.path') }}" alt="{{ xe_trans($config->get('logoText', '')) }}" width="200"/>
+        @endif
+        <h3>{{ $config->get('bgTitle') }}</h3>
+        <p>{!! nl2br($config->get('bgContent')) !!}</p>
     </div>
 
 </section>
 @endif
 
-<div id="content" style="height:100%; min-height:768px;">
+
+<div id="content" @if($config->get('headerPosition') != 'top-fixed') class="hasLeft" @endif style="height:100%; min-height:768px;">
 {!! $content !!}
 </div>
 
-<div class="footer">
+<div class="footer @if($config->get('headerPosition') != 'top-fixed') hasLeft @endif ">
     <div class="xe-container">
         <div class="xe-row">
             <div class="xe-col-sm-3">
@@ -161,6 +168,8 @@ $theme::asset('js/particles.min.js'),
 
 <script>
 $(document).ready(function(){
+
+    @if($config->get('layout') == "particle")
     particlesJS('particles-js',
 
             {
@@ -279,7 +288,7 @@ $(document).ready(function(){
                     "background_size": "cover"
                 }
             }
-
     );
+    @endif
 });
 </script>

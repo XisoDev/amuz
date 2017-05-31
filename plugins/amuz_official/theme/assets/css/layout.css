@@ -2,7 +2,13 @@
 /* LYG */
 /*reset*/
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
-
+*{
+    -webkit-transition: ease 250ms;
+    -moz-transition: ease 250ms;
+    -ms-transition: ease 250ms;
+    -o-transition: ease 250ms;
+    transition: ease 250ms;
+}
 html, body {
     height:100%;
     margin: 0;
@@ -21,6 +27,16 @@ a, a:link, a:hover, a:visited {
     text-decoration: none;
 }
 
+.image_layoutmode h3{
+
+}
+.image_layoutmode p{
+
+}
+
+.hasLeft{
+    padding-left:220px;
+}
 .float-left {
     float: left;
 }
@@ -29,8 +45,11 @@ a, a:link, a:hover, a:visited {
     float: right;
 }
 
-#section1 {
+#intro {
     height: 100%;
+    background-attachment: fixed;
+    position:relative;
+    z-index:-1;
 }
 
 .footer h3, .footer ul {
@@ -68,7 +87,9 @@ body, input, textarea, select, table {
 }
 
 #content {
-    padding-left: 220px;
+    height:100%;
+    min-height:768px;
+    background: #FFF;
 }
 
 #sidemenu {
@@ -96,11 +117,14 @@ body, input, textarea, select, table {
     font-size: 20px;
     font-weight: bold;
 }
+#sidemenu .menuLink.active,
+#sidemenu .menuLink:hover{
+    color: rgb(89, 153, 205);
+}
 
 .footer {
   background-color: #1B1C1F;
   color: #fff;
-    padding-left:220px;
 }
 
 .footer > .xe-container, .footer > .xe-container-fluid {
