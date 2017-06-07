@@ -102,7 +102,7 @@ body, input, textarea, select, table {
 #content {
     height:100%;
     min-height:768px;
-    background: #FFF;
+    position: relative;
 }
 
 #sidemenu {
@@ -112,6 +112,7 @@ body, input, textarea, select, table {
     top: 0;
     left: 0;
     display: table;
+    z-index: 1;
 }
 
 #sidemenu ul {

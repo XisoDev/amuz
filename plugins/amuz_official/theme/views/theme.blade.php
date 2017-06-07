@@ -62,24 +62,39 @@ $theme::asset('js/smoothscroll.js'),
         </nav>
     </div>
 </header>--}}
-
 <header id="sidemenu" class="scrolllink" style="@if($config->get('headerBgColor')) background-color: {{ $config->get('headerBgColor') }} @endif">
     <ul>
         @foreach(menu_list($config->get('mainMenu')) as $menu)
         <li>
-            <a class="menuLink" href="{{ url($menu['url']) }}" target="{{ $menu['target'] }}">{{ $menu['link'] }}</a>
+            @if(Request::path() == '/')
+                <a class="menuLink" href="{{ url($menu['url']) }}" target="{{ $menu['target'] }}">{{ $menu['link'] }}</a>
+            @else
+                @if(str_contains( $menu['url'], '#'))
+                <a class="menuLink" href="/{{ url($menu['url']) }}" target="{{ $menu['target'] }}">{{ $menu['link'] }}</a>
+                @else
+                <a class="menuLink" href="{{ url($menu['url']) }}" target="{{ $menu['target'] }}">{{ $menu['link'] }}</a>
+                @endif
+            @endif
         </li>
         @endforeach
     </ul>
 </header>
 
-@if($config->get('bgTxtColor'))
+
 <style>
+@if($config->get('bgTxtColor'))
     #intro h1, #intro p {
         color: {{ $config->get('bgTxtColor') }}
     }
-</style>
 @endif
+@if($config->get('bgColor'))
+    body {
+        background-color: {{ $config->get('bgColor') }};
+    }
+@endif
+</style>
+
+
 
 @if($config->get('layout') != 'default')
 <section id="intro" @if($config->get('layout') != "particle") @endif style="background-color: @if($config->get('bgColor')) {{ $config->get('bgColor') }} @else #000 @endif; @if($config->get('bgImage.path')) background-image: url({{ $config->get('bgImage.path') }}); @endif">
@@ -105,65 +120,65 @@ $theme::asset('js/smoothscroll.js'),
 @endif
 
 
-<div id="content" @if($config->get('headerPosition') != 'top-fixed') class="hasLeft" @endif style="height:100%; min-height:768px;">
+<div id="content" @if($config->get('headerPosition') != 'top-fixed') class="hasLeft" @endif>
 {!! $content !!}
-</div>
 
-<div class="footer @if($config->get('headerPosition') != 'top-fixed') hasLeft @endif ">
-    <div class="xe-container">
-        <div class="xe-row">
-            <div class="xe-col-sm-3">
-                <div class="brand-area">
-                    <a href="{{ url('/') }}" class="link-brand">
-                        @if($config->get('footerLogoImage.path'))
-                            <img src="{{ $config->get('footerLogoImage.path') }}" alt="{{ xe_trans($config->get('footerLogoText', 'Amuz')) }}"/>
-                        @else
-                            {!! xe_trans($config->get('footerLogoText', 'Alice')) !!}
-                        @endif
-                    </a>
+    <div class="footer">
+        <div class="xe-container">
+            <div class="xe-row">
+                <div class="xe-col-sm-3">
+                    <div class="brand-area">
+                        <a href="{{ url('/') }}" class="link-brand">
+                            @if($config->get('footerLogoImage.path'))
+                                <img src="{{ $config->get('footerLogoImage.path') }}" alt="{{ xe_trans($config->get('footerLogoText', 'Amuz')) }}"/>
+                            @else
+                                {!! xe_trans($config->get('footerLogoText', 'Alice')) !!}
+                            @endif
+                        </a>
+                    </div>
+                    <p class="footer-text">
+                        {!! xe_trans($config->get('footerContents', '')) !!}
+                    </p>
                 </div>
-                <p class="footer-text">
-                    {!! xe_trans($config->get('footerContents', '')) !!}
-                </p>
-            </div>
 
-            @if($config->get('useFooterMenu', 'N') === 'Y')
-                @include($theme::view('fnb'))
-            @endif
+                @if($config->get('useFooterMenu', 'N') === 'Y')
+                    @include($theme::view('fnb'))
+                @endif
 
-            <div class="xe-col-sm-2 xe-col-xs-offset-1">
-                <div class="link-area float-right">
-                    @if($links = $config->get('footerLinkUrl'))
-                        @foreach ($links as $index => $url)
-                            <a href="{{$url}}"><i class="{{ $config->get("footerLinkIcon.$index") }}"></i></a>
-                        @endforeach
-                    @endif
+                <div class="xe-col-sm-2 xe-col-xs-offset-1">
+                    <div class="link-area float-right">
+                        @if($links = $config->get('footerLinkUrl'))
+                            @foreach ($links as $index => $url)
+                                <a href="{{$url}}"><i class="{{ $config->get("footerLinkIcon.$index") }}"></i></a>
+                            @endforeach
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="footer-copy">
-        <div class="xe-container">
-            <div class="xe-row">
-                <div class="xe-col-sm-6">
-                    <p>{{$config->get('copyright', '')}}</p>
-                </div>
-                <div class="xe-col-sm-6">
+        <div class="footer-copy">
+            <div class="xe-container">
+                <div class="xe-row">
+                    <div class="xe-col-sm-6">
+                        <p>{{$config->get('copyright', '')}}</p>
+                    </div>
+                    <div class="xe-col-sm-6">
 
-                    @if($config->get('useMultiLang', 'Y') === 'Y')
-                        <div class="xe-form-group">
-                            <div class="xe-dropdown ">
-                                <button class="xe-btn" type="button" data-toggle="xe-dropdown"><i class="{{XeLang::getLocale()}} xe-flag"></i> {{ XeLang::getLocaleText(XeLang::getLocale()) }}</button>
-                                <ul class="xe-dropdown-menu">
-                                    @foreach ( XeLang::getLocales() as $locale )
-                                        <li><a href="{{ locale_url($locale) }}"><i class="{{ $locale }} xe-flag" data-locale="{{ $locale }}"></i> {{ XeLang::getLocaleText($locale) }}</a></li>
-                                    @endforeach
-                                </ul>
+                        @if($config->get('useMultiLang', 'Y') === 'Y')
+                            <div class="xe-form-group">
+                                <div class="xe-dropdown ">
+                                    <button class="xe-btn" type="button" data-toggle="xe-dropdown"><i class="{{XeLang::getLocale()}} xe-flag"></i> {{ XeLang::getLocaleText(XeLang::getLocale()) }}</button>
+                                    <ul class="xe-dropdown-menu">
+                                        @foreach ( XeLang::getLocales() as $locale )
+                                            <li><a href="{{ locale_url($locale) }}"><i class="{{ $locale }} xe-flag" data-locale="{{ $locale }}"></i> {{ XeLang::getLocaleText($locale) }}</a></li>
+                                        @endforeach
+                                    </ul>
+                                </div>
                             </div>
-                        </div>
-                    @endif
+                        @endif
 
-                    <p class="float-right">Made by <a href="http://xpressengine.io">XE</a></p>
+                        <p class="float-right">Made by <a href="http://xpressengine.io">XE</a></p>
+                    </div>
                 </div>
             </div>
         </div>
