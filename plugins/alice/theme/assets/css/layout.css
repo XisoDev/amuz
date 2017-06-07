@@ -790,7 +790,7 @@ header nav .nav-list .sub-menu {
 
 @media (min-width: 768px) {
   .spot-area .item-slide {
-    height: 900px;
+    height: 500px;
     background-size: cover;
   }
   .spot-area .item-slide .slide-text strong {

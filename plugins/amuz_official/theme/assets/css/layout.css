@@ -1,10 +1,8 @@
 @charset "UTF-8";
 /* LYG */
 /*reset*/
-@import url(//fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
-@import url(//fonts.googleapis.com/css?family=Oswald);
-@import url(//fonts.googleapis.com/css?family=Quattrocento);
+@import url("https://fonts.googleapis.com/css?family=Raleway:100,60");
+@import url("http://fonts.googleapis.com/earlyaccess/notosanskr.css");
 *{
     -webkit-transition: ease 250ms;
     -moz-transition: ease 250ms;
@@ -13,6 +11,9 @@
     transition: ease 250ms;
 }
 html, body {
+    color: #636b6f;
+    font-family: 'Noto Sans KR';
+    font-weight: 400;
     height:100%;
     margin: 0;
     padding: 0;
@@ -76,27 +77,6 @@ a, a:link, a:hover, a:visited {
 
 .footer .menu-list li a, .footer h3 a, .footer .footer-copy a {
   text-decoration: none;
-}
-
-@font-face {
-  font-family: "ng";
-  font-style: normal;
-  src: url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Regular.eot");
-  src: url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Regular.eot?#iefix") format("embedded-opentype"), url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Regular.woff") format("woff"), url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Regular.ttf") format("truetype");
-}
-
-@font-face {
-  font-family: "ng";
-  font-style: normal;
-  font-weight: 300;
-  src: url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Light.eot");
-  src: url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Light.eot?#iefix") format("embedded-opentype"), url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Light.woff") format("woff"), url("//cdn.jsdelivr.net/font-nanum/1.0/nanumbarungothic/v1/NanumBarunGothic-Light.ttf") format("truetype");
-}
-
-body, input, textarea, select, table {
-  /*font-family: "애플 SD 산돌고딕 Neo","Apple SD Gothic Neo",AppleGothic,Helvetica,sans-serif;*/
-  font-family: "Nanum Gothic",sans-serif;
-  font-size: 13px;
 }
 
 #content {

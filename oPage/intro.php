@@ -1,34 +1,18 @@
 <?php XeFrontend::css('/oPage/assets/css/common.css')->load(); ?>
 
 <!-- SECTION1 -->
-<section class="section" id="section1">
-    <div class="leftimg">
-    </div>
-    <div class="rightimg">
-        <div class="about_wrap">
-            <div class="about_01">
-                <img src="oPage/assets/images/b-icon.png">
-                <h1>Branding</h1>
+<section class="section" id="service">
+    <div class="flex-center position-ref full-height">
+        <div class="content">
+            <div class="title m-b-md">
+                SERVICE
             </div>
-            <div class="about_01">
-                <img src="oPage/assets/images/w-icon.png">
-                <h1>Web</h1>
-            </div>
-            <div class="about_01">
-                <img src="oPage/assets/images/d-icon.png">
-                <h1>Design</h1>
-            </div>
-            <div class="about_01">
-                <img src="oPage/assets/images/s-icon.png">
-                <h1>system Development</h1>
-            </div>
-            <div class="about_01">
-                <img src="oPage/assets/images/m-icon.png">
-                <h1>Marketing</h1>
-            </div>
-            <div class="about_01">
-                <img src="oPage/assets/images/ser-icon.png">
-                <h1>Service</h1>
+
+            <div class="links">
+                <a href="http://xpos.amuz.co.kr" onclick="alert('아직 준비하고있습니다.'); return false;">xPos</a>
+                <a href="http://bizm.amuz.co.kr">BizMAGAZINE</a>
+                <a href="http://travela.amuz.co.kr" onclick="alert('아직 준비하고있습니다.'); return false;">TravelA</a>
+                <a href="http://landblog.amuz.co.kr" onclick="alert('아직 준비하고있습니다.'); return false;">LandBlog</a>
             </div>
         </div>
     </div>
@@ -216,4 +200,9 @@
         </div>
     </div>
     <div class="clearfix"></div>
+</section>
+
+
+<section class="section" id="contactus">
+    contact
 </section>

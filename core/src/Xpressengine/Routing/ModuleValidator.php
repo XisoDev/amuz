@@ -237,7 +237,7 @@ class ModuleValidator implements ValidatorInterface
             $sub_domain    = ($host!=$domain)?str_replace(".{$domain}", "", $host):"";
             switch($sub_domain){
                 case "bizm" :
-                    $homeInstanceId = "0b05439e";
+                    $homeInstanceId = "df6372fe";
                 break;
 
                 case "xpos" :

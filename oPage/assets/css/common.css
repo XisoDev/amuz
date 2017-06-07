@@ -1,9 +1,6 @@
 @charset "utf-8";
-@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
-@import url(https://fonts.googleapis.com/css?family=Oswald);
-@import url(https://fonts.googleapis.com/css?family=Quattrocento);
 
-html, body { height: 100%; width:100%; margin:0; padding:0; font-family: 'Nanum Gothic', sans-serif; font-size: 12px;}
+html, body { height: 100%; width:100%; margin:0; padding:0;}
 h1, h2, h3, h4, p { margin:0; padding:0; }
 a, a:link, a:hover, a:visited { text-decoration: none; color:#000; }
 ul, li {margin:0; padding:0; list-style:none;}
@@ -32,68 +29,55 @@ ul, li {margin:0; padding:0; list-style:none;}
 }
 .slide {width: 100%;}
 /*----- section0 -----*/
-#section0 {
-	position: relative;
-	background-image: url(../images/amuz_main.png);
-	background-position: center center;
-	background-size: cover; 
-}
-#section0 .layer {
-	position: absolute;
-	z-index: 4;
-	width: 100%;
-	left: 0;
-	top: 50%;
-	transform: translateY(-50%);
-	text-align: center;
-}
-#section0 .layer img {width:200px;}
+#intro img {width:150px !important;}
 
-/*----- section1 -----*/
-#section1 {
-	background: url(../images/logo_black_opacity.png) no-repeat top right;
-	background-position: top right;
-	background-size: 600px;
+/*----- service -----*/
+#service {
+	font-family : 'Raleway';
+	font-weight:100;
     background-color: #fff;
     position: relative;
 }
-#section1 .leftimg {
-	width: 40%;
-	height: 100%;
-	background: url(../images/bg01.png) no-repeat center center;
-	background-size: cover;
-	float: left;
-}
-#section1 .leftimg:after {
-	position: absolute;
-	display: block;
-	content: "";
-	top: 0;
-	left: 0;
-	width: 40%;
-	height: 100%;
-	box-shadow: inset -1px -1px 20px rgba(0, 0, 0, 0.15), 
-	inset 0 0 100px rgba(0, 0, 0, 0.2);
-  	background: rgba(0, 177, 247, 0.5);
-}
-#section1 .rightimg {
-    position: absolute;
-    right: 0;
-    bottom: 0;
-	width: 60%;
-	height: 70%;
-	padding: 40px;
-	box-sizing: border-box;
-  	background: white;
-  	float: left;
- 	text-align:center;
-}
-.about_wrap {margin:0 auto;}
-.about_01 img {width:140px;}
-#section1 .about_01 {width:calc(100%/3); float:left; padding-bottom:35px;}
-#section1 .rightimg h1{padding-top:10px; font-size:18px; font-weight:600; color:#333;}
-#section1 .rightimg h4{line-height:170%;}
 
+#service .full-height {
+	height:100%;
+}
+#service .flex-center {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+#service .position-ref {
+	position: relative;
+}
+
+#service .top-right {
+	position: absolute;
+	right: 10px;
+	top: 18px;
+}
+
+#service .content {
+	text-align: center;
+}
+
+#service .title {
+	font-size: 84px;
+}
+
+#service .links > a {
+	color: #636b6f;
+	padding: 0 25px;
+	font-size: 16px;
+	letter-spacing: .1rem;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.m-b-md {
+	margin-bottom: 30px;
+}
 /*----- section2 -----*/
 
 #ourworks .left, #ourworks .right{

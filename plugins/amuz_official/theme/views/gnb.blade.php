@@ -1,6 +1,5 @@
 <ul class="nav-list">
-    @foreach(menu_list($config->get('mainMenu')) as $menu)
-
+    @foreach(menu_list($config->get('mainMenu')) as $menu)ㄴ
         {{-- depth0 --}}
         <li class=" @if(count($menu['children'])) sub-menu @endif @if($menu['selected']) on @endif ">
             <a href="{{ url($menu['url']) }}" target="{{ $menu['target'] }}">
