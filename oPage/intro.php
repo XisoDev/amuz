@@ -36,7 +36,7 @@
             </a>
         </div>
         <div class="l_bottom">
-            <a class="bgwrap" href="#">
+            <a class="bgwrap" href="/webapp">
                 <div class="works_bg" style="background-image: url(./oPage/assets/images/iMac.png);">
                 </div>
                 <div class="works_t">
@@ -50,7 +50,7 @@
     </div>
     <div class="right">
         <div class="r_top">
-            <a class="bgwrap" href="#">
+            <a class="bgwrap" href="/design">
                 <div class="works_bg" style="background-image: url(./oPage/assets/images/iPhone.png);">
                 </div>
                 <div class="works_t">
@@ -62,7 +62,7 @@
             </a>
         </div>
         <div class="r_middle">
-            <a class="bgwrap" href="#">
+            <a class="bgwrap" href="/system">
                 <div class="works_bg" style="background-image: url(./oPage/assets/images/iMac.png);">
                 </div>
                 <div class="works_t">
@@ -74,7 +74,7 @@
             </a>
         </div>
         <div class="r_bottom">
-            <a class="bgwrap" href="#">
+            <a class="bgwrap" href="/marketing">
                 <div class="works_bg" style="background-image: url(./oPage/assets/images/iPhone.png);">
                 </div>
                 <div class="works_t">

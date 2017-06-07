@@ -63,6 +63,7 @@ a, a:link, a:hover, a:visited {
     background-attachment: fixed;
     position:relative;
     z-index:-1;
+    background-size: cover;
 }
 
 .footer h3, .footer ul {
