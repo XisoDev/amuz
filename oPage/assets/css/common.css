@@ -29,7 +29,7 @@ ul, li {margin:0; padding:0; list-style:none;}
 }
 .slide {width: 100%;}
 /*----- section0 -----*/
-#intro img {width:150px !important;}
+#intro img {width:150px !important; }
 
 /*----- service -----*/
 #service {
