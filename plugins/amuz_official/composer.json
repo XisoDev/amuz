@@ -27,6 +27,11 @@
                     "class": "amuz\\official\\Theme\\Theme",
                     "name": "Amuz Official",
                     "description": "The Theme supported by Amuz_official plugin."
+                },
+                "module/board@board/skin/amuz_official@portfolioskin": {
+                    "class": "amuz\\official\\Skins\\PortfolioSkin",
+                    "name": "포트폴리오 스킨",
+                    "description": "The Skin supported by Amuz_official plugin."
                 }
             }
         }
@@ -37,7 +42,8 @@
             "amuz\\official\\": "src/"
         },
         "classmap": [
-            "theme/Theme.php"
+            "theme/Theme.php",
+            "skins/portfolio/PortfolioSkin.php"
         ]
     }
 }

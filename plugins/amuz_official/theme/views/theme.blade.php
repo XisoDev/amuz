@@ -12,6 +12,7 @@
 
 {{-- script --}}
 {{ app('xe.frontend')->js([
+//$theme::asset('js/jquery.min.js'),
 $theme::asset('js/layout.js'),
 $theme::asset('js/smoothscroll.js'),
 ])->load() }}

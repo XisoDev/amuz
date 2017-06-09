@@ -21,6 +21,7 @@ class ComposerStaticInitb79ca96693de3b86c25b4f7f0878ce69
     );
 
     public static $classMap = array (
+        'amuz\\official\\Skins\\PortfolioSkin' => __DIR__ . '/../..' . '/skins/portfolio/PortfolioSkin.php',
         'amuz\\official\\Theme\\Theme' => __DIR__ . '/../..' . '/theme/Theme.php',
     );
 
